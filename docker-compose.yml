@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+
+  go_application:
+    restart: unless-stopped
+    container_name: work_with_me_websocket
+    build: "."
+    expose:
+      - 80
+    networks:
+      - app_network
+      - server
+
+networks:
+  app_network:
+    driver: bridge
+  server:
+    external: true
